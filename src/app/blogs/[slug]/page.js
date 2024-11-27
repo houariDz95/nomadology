@@ -162,9 +162,9 @@ export default function BlogPage({ params }) {
         </div>
         <RenderMdx blog={blog} />
       </div>
-      <div className="mt-16 p-4">
+      {/* <div className="mt-16 p-4">
       <div data-gyg-widget="auto" data-gyg-partner-id="S309I0O"></div>
-      </div>
+      </div> */}
     </article>
     </>
    

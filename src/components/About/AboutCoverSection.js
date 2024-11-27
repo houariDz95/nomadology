@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/image'; 
 import React from 'react';
 import profileCharacter from "../../../public/character.png";
 
@@ -20,7 +20,7 @@ const AboutCoverSection = () => {
           Wander Far, Live Free, Embrace the World!
         </h2>
         <p className='font-medium mt-4 text-base'>
-          This philosophy fuels my passion as a modern-day nomad. From breathtaking landscapes to vibrant cultures, I’ve journeyed across the globe, capturing the essence of each destination. Through travel, I embrace challenges, seek new perspectives, and create meaningful connections. My mission? To inspire fellow wanderers to explore, dream, and discover a life of freedom and adventure.
+          This philosophy fuels my passion as a modern-day nomad. From breathtaking landscapes to vibrant cultures, I&rsquo;ve journeyed across the globe, capturing the essence of each destination. Through travel, I embrace challenges, seek new perspectives, and create meaningful connections. My mission? To inspire fellow wanderers to explore, dream, and discover a life of freedom and adventure.
         </p>
       </div>
     </section>
@@ -28,3 +28,4 @@ const AboutCoverSection = () => {
 };
 
 export default AboutCoverSection;
+
