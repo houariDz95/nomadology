@@ -25,52 +25,76 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
+  const cat = (await params).slug;
   return {
-    title: `${params.slug.replaceAll("-"," ")} Blogs`,
-    description: `Learn more about ${params.slug === "all" ? "web development" : params.slug} through our collection of expert blogs and tutorials`,
+    title: `${cat.replaceAll("-", " ")} Blogs`,
+    description: `Learn more about ${
+      cat === "all" ? "web development" : cat
+    } through our collection of expert blogs and tutorials`,
   };
 }
 
+const CategoryPage = async ({ params, searchParams }) => {
+  const cat = (await params).slug; // Current category
+  const search = searchParams.search?.toLowerCase() || ""; // Search query, converted to lowercase
 
-const CategoryPage = ({ params }) => {
-// Separating logic to create list of categories from all blogs
-const allCategories = ["all"]; // Initialize with 'all' category
-allBlogs.forEach(blog => {
-  blog.tags.forEach(tag => {
-    const slugified = slug(tag);
-    if (!allCategories.includes(slugified)) {
-      allCategories.push(slugified);
-    }
+  // Generate a list of all categories
+  const allCategories = ["all"]; // Start with 'all'
+  allBlogs.forEach((blog) => {
+    blog.tags.forEach((tag) => {
+      const slugified = slug(tag);
+      if (!allCategories.includes(slugified)) {
+        allCategories.push(slugified);
+      }
+    });
   });
-});
 
-// Sort allCategories to ensure they are in alphabetical order
-allCategories.sort();
+  // Sort categories alphabetically
+  allCategories.sort();
 
-// Step 2: Filter blogs based on the current category (params.slug)
-const blogs = allBlogs.filter(blog => {
-  if (params.slug === "all") {
-    return true; // Include all blogs if 'all' category is selected
+  // Filter blogs based on category
+  let filteredBlogs = allBlogs.filter((blog) => {
+    if (cat === "all") {
+      return true; // Show all blogs if category is 'all'
+    }
+    return blog.tags.some((tag) => slug(tag) === cat);
+  });
+
+  // Further filter blogs based on search query
+  if (search) {
+    filteredBlogs = filteredBlogs.filter((blog) => {
+      // Match the title or content against the search query
+      return (
+        blog.title.toLowerCase().includes(search) ||
+        blog.description.toLowerCase().includes(search)
+      );
+    });
   }
-  return blog.tags.some(tag => slug(tag) === params.slug);
-});
 
   return (
     <article className="mt-12 flex flex-col text-dark dark:text-light">
-      <div className=" px-5 sm:px-10  md:px-24  sxl:px-32 flex flex-col">
-        <h1 className="mt-6 font-semibold text-2xl md:text-4xl lg:text-5xl">#{params.slug}</h1>
+      <div className="px-5 sm:px-10 md:px-24 sxl:px-32 flex flex-col">
+        <h1 className="mt-6 font-semibold text-2xl md:text-4xl lg:text-5xl">
+          #{cat}
+        </h1>
         <span className="mt-2 inline-block">
           Discover more categories and expand your knowledge!
         </span>
       </div>
-      <Categories categories={allCategories} currentSlug={params.slug} />
+      <Categories categories={allCategories} currentSlug={cat} />
 
-      <div className="grid  grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 grid-rows-2 gap-16 mt-5 sm:mt-10 md:mt-24 sxl:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32">
-        {blogs.map((blog, index) => (
-          <article key={index} className="col-span-1 row-span-1 relative">
-            <BlogLayoutThree blog={blog} />
-          </article>
-        ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-16 mt-5 sm:mt-10 md:mt-24 sxl:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32">
+        {filteredBlogs.length > 0 ? (
+          filteredBlogs.map((blog, index) => (
+            <article key={index} className="col-span-1 row-span-1 relative">
+              <BlogLayoutThree blog={blog} />
+            </article>
+          ))
+        ) : (
+          <p className="text-center col-span-full">
+            No blogs found matching your search criteria.
+          </p>
+        )}
       </div>
     </article>
   );

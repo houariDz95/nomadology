@@ -56,6 +56,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="S309I0O"></script>
+      </head>
       <body
         className={cx(
           inter.variable,

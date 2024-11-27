@@ -2,14 +2,15 @@ import InsightRoll from "@/src/components/About/InsightRoll";
 
 
 const insights = [
-    "20+ Projects Completed",
-    "3+ Years of Freelancing",
-    "99% Client Satisfaction",
-    "20K+ Subscribers",
-    "Authored In-Depth Course on Educative",
-    "Contributed as a Technical Course Reviewer 📝",
-    "Recipient of the Hackernoon Noonies Award 🏆",
-  ];
+  "Explored 50+ Countries Across 6 Continents 🌍",
+  "5+ Years of Full-Time Nomadic Living",
+  "Guided 1,000+ Travelers to Plan Their Adventures",
+  "Published Travel Guides Reaching 100K+ Readers",
+  "Specialist in Sustainable and Ethical Travel 🌿",
+  "Collaborated with Renowned Travel Blogs and Brands ✈️",
+  "Captured 10K+ Stunning Travel Photos 📸",
+  "Inspired a Community of 20K+ Like-Minded Nomads",
+];
 
 export default function AboutLayout({ children }) {
   return (
