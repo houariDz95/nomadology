@@ -35,7 +35,8 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "shiki": "^0.14.3",
-    "tailwindcss": "3.3.3"
+    "tailwindcss": "3.3.3",
+    "utf-8-validate": "^6.0.5"
   },
   "devDependencies": {
     "encoding": "^0.1.13",
