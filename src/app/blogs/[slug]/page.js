@@ -1,11 +1,14 @@
-import BlogDetails from "@/src/components/Blog/BlogDetails";
-import RenderMdx from "@/src/components/Blog/RenderMdx";
 import Tag from "@/src/components/Elements/Tag";
 import siteMetadata from "@/src/utils/siteMetaData";
 import { allBlogs } from "contentlayer/generated";
 import { slug } from "github-slugger";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import dynamic from 'next/dynamic';
+
+const BlogDetails = dynamic(() => import('@/src/components/Blog/BlogDetails'));
+const RenderMdx = dynamic(() => import('@/src/components/Blog/RenderMdx'));
+
 
 export async function generateStaticParams() {
   return allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }));
@@ -57,7 +60,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function BlogPage({ params }) {
+export default  function BlogPage({ params }) {
   const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
 
   if(!blog){
