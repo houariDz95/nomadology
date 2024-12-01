@@ -95,8 +95,6 @@ export default function BlogPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
        <article>
-
-      <BlogDetails blog={blog} slug={params.slug} />
       test test
     </article>
     </>
