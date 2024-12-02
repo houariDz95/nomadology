@@ -79,9 +79,9 @@ const Footer = () => {
         </Link>
         <div className="text-center">
           Made with &hearts; by{" "}
-          <a href="https://devdreaming.com" className="underline" target="_blank">
+          <span  className="underline" target="_blank">
             Houair Eddrief
-          </a>
+          </span>
         </div>
       </div>
     </footer>
