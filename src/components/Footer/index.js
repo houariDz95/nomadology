@@ -17,6 +17,7 @@ const Footer = () => {
     if (searchQuery.trim()) {
       router.push(`/categories/${cat}?search=${encodeURIComponent(searchQuery)}`);
     }
+    setSearchQuery("")
   };
 
   return (
