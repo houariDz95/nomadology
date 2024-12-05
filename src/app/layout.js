@@ -73,8 +73,8 @@ export default function RootLayout({ children }) {
   }`}
         </Script>
         <Header />
-        {children}
         <CookieBot />
+        {children}
         <Footer />
         <Analytics/>
       </body>
