@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import siteMetadata from "../utils/siteMetaData";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react"
+import CookieBot from "../components/Cookies/CookieBot";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,9 +58,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js" data-gyg-partner-id="S309I0O"></script>
-      </head>
       <body
         className={cx(
           inter.variable,
@@ -76,6 +74,7 @@ export default function RootLayout({ children }) {
         </Script>
         <Header />
         {children}
+        <CookieBot />
         <Footer />
         <Analytics/>
       </body>
