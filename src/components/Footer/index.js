@@ -70,7 +70,7 @@ const Footer = () => {
       {/* Footer Bottom Section */}
       <div className="w-full mt-16 md:mt-24 relative font-medium border-t border-solid border-light py-6 px-8 flex flex-col md:flex-row items-center justify-between">
         <span className="text-center">
-          &copy;2023 Nomadology. All rights reserved.
+          &copy;2024 Nomadology. All rights reserved.
         </span>
         <Link
           href="/sitemap.xml"

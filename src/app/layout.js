@@ -8,6 +8,8 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react"
 import CookieBot from "../components/Cookies/CookieBot";
 
+const domain_id = process.env.NEXT_DOMAIN_GROUP_ID
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -73,7 +75,7 @@ export default function RootLayout({ children }) {
   }`}
         </Script>
         <Header />
-        <CookieBot />
+        <CookieBot domainId={domain_id}/>
         {children}
         <Footer />
         <Analytics/>
