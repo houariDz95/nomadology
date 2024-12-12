@@ -137,7 +137,7 @@ export default function BlogPage({ params }) {
                 return (
                   <li key={`#${heading.slug}`} className="py-1">
                     <a
-                      href={`#${heading.slug}`}
+                      href={`#${heading.slug.replace(/--$/, '')}`}
                       data-level={heading.level}
                       className="data-[level=two]:pl-0  data-[level=two]:pt-2
                                        data-[level=two]:border-t border-solid border-dark/40
