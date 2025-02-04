@@ -77,6 +77,7 @@ export default function RootLayout({ children }) {
     document.documentElement.classList.remove('dark')
   }`}
         </Script>
+        <script type='text/javascript' src='//affordspoonsgray.com/68/72/ca/6872ca2852057edec2d7d2e65d2eb490.js'></script>
         <Header />
         <CookieBot domainId={domain_id}/>
         {children}
