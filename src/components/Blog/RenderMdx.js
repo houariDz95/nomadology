@@ -35,10 +35,7 @@ const RenderMdx = ({blog}) => {
 
 
     '> 
-        <Banner_480 />
        <MDXContent components={mdxComponents} /> 
-       <script async="async" data-cfasync="false" src="//affordspoonsgray.com/f4ff0ecd67035dbb714b6ca3094a8538/invoke.js"></script>
-        <div id="container-f4ff0ecd67035dbb714b6ca3094a8538"></div>
     </div>
   )
 }
